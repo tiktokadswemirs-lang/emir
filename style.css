@@ -981,7 +981,8 @@ a:hover {
     }
 
     .steps-grid {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        /* Force two columns on mobile as requested */
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .contact-grid {
@@ -1064,10 +1065,7 @@ a:hover {
 
     /* Removed redundant and incorrect mobile rule for partners-grid at 480px, as 768px rule is sufficient and better */
 
-    .steps-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
+    /* Reverted to keep two columns on smaller screens as requested by user */
 
     .direction-card,
     .partner-card,
