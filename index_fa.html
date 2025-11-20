@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BASH EMIR — تاجر و تامین کننده بین المللی سوخت دیزل، بنزین، قیر، مازوت و کک نفتی. تامین به کشورهای CIS، آسیا و خاورمیانه.">
+    <title>BASH EMIR: تاجر بین المللی نفت و فرآورده های نفتی.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="shortcut icon" sizes="32x32" href="unnamed.jpg" type="/favicon-32x32.png">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="unnamed.jpg" alt="BASH EMIR Logo" class="logo-circle">
+                    <span class="logo-text">BASH EMIR</span>
+                </div>
+
+                <nav class="nav-desktop">
+                    <button class="nav-link" data-translate="catalog" onclick="scrollToSection('catalog')">کاتالوگ</button>
+                    <button class="nav-link" data-translate="logistics" onclick="scrollToSection('logistics')">لجستیک</button>
+                    <button class="nav-link" data-translate="about" onclick="scrollToSection('about')">درباره ما</button>
+                    <button class="nav-link" data-translate="contacts" onclick="scrollToSection('contact')">تماس</button>
+                </nav>
+
+                <div class="header-controls">
+                    <button class="search-btn" onclick="toggleSearch()">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+                            <circle cx="8" cy="8" r="6"></circle>
+                            <path d="M12 12l4 4"></path>
+                        </svg>
+                    </button>
+                    <div class="lang-switcher">
+                        <button class="lang-btn" data-lang="ru" onclick="switchLanguage('ru')">RU</button>
+                        <button class="lang-btn" data-lang="en" onclick="switchLanguage('en')">EN</button>
+                        <button class="lang-btn active" data-lang="ir" onclick="switchLanguage('ir')">IR</button>
+                        <button class="lang-btn" data-lang="tr" onclick="switchLanguage('tr')">TR</button>
+                    </div>
+                    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
+            </div>
+
+            <nav class="mobile-menu" id="mobileMenu">
+                <button class="nav-link" data-translate="catalog" onclick="scrollToSection('catalog'); toggleMobileMenu()">کاتالوگ</button>
+                <button class="nav-link" data-translate="logistics" onclick="scrollToSection('logistics'); toggleMobileMenu()">لجستیک</button>
+                <button class="nav-link" data-translate="about" onclick="scrollToSection('about'); toggleMobileMenu()">درباره ما</button>
+                <button class="nav-link" data-translate="contacts" onclick="scrollToSection('contact'); toggleMobileMenu()">تماس</button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <video autoplay muted loop playsinline preload="auto" id="hero-video">
+            <source src="1111.mp4" type="video/mp4">
+            مرورگر شما از تگ ویدیو پشتیبانی نمی‌کند.
+        </video>
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-overlay"></div>
+
+        <div class="trading-widget">
+            <div class="widget-item">
+                <span class="widget-label" id="oil-label">BRENT OIL</span>
+                <span class="widget-change" id="oil-change">...</span>
+            </div>
+            <div class="widget-price" id="oil-price">...</div>
+            <hr class="widget-divider">
+            
+            <div class="widget-item">
+                <span class="widget-label">NATURAL GAS</span>
+                <span class="widget-change" id="gas-change">...</span>
+            </div>
+            
+            <div class="widget-item">
+                <span class="widget-label">GOLD</span>
+                <span class="widget-change" id="gold-change">...</span>
+            </div>
+            
+        </div>
+
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title" data-translate="heroTitle">محصولات نفتی در سراسر جهان</h1>
+                <p class="hero-subtitle" data-translate="heroSubtitle">راه‌حل‌های نقدی و قراردادهای بلندمدت با قیمت‌گذاری شفاف</p>
+                <button class="btn btn-primary" data-translate="learnMore" onclick="scrollToSection('about')">بیشتر بدانید</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section about-section">
+        <div class="container">
+            <h2 class="section-title" data-translate="aboutSectionTitle">درباره ما</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p data-translate="aboutCompany1">BASH EMIR — ساختار تجارت نفت بین‌المللی است که به تجارت محصولات نفتی می‌پردازد.</p>
+                    <p data-translate="aboutCompany2"> شرکت ما طیف گسترده‌ای از فرآورده‌های نفتی را به‌صورت بین‌المللی تأمین و عرضه می‌کند. ما با تأمین‌کنندگان قابل‌اعتماد در روسیه، چین، هند، ایران، قزاقستان، آذربایجان، ترکمنستان و ترکیه همکاری می‌کنیم. این شرکت تمام منابع لازم برای انجام معاملات به موقع در سراسر جهان را در اختیار دارد. به لطف سالها تجربه در این صنعت، ما فرآیند عرضه از تولید کننده تا مصرف کننده نهایی را به خوبی تنظیم کرده ایم و از کارایی، ایمنی و پایداری تعامل آنها اطمینان حاصل می کنیم.</p>
+                </div>
+                <div class="about-logo">
+                    <div class="logo-large">
+                        <img src="unnamed.jpg"  class="logo-circle-large">
+                        <p style="margin-top: 30px; font-size: 1rem; color: rgba(255, 255, 255, 0.7);" data-translate="commercialOffer">پیشنهاد تجاری</p>
+                        <button class="btn btn-document" onclick="downloadProducerDocument()" data-translate="openProducerDocument" style="margin-top: 15px; background: linear-gradient(135deg, var(--accent-color), #ffed4e); color: #0d1419; border: none; padding: 12px 28px; border-radius: 4px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3); display: block; width: 100%;">برای تولیدکنندگان</button>
+                        <button class="btn btn-document" onclick="downloadBuyerDocument()" data-translate="openBuyerDocument" style="margin-top: 10px; background: linear-gradient(135deg, var(--accent-color), #ffed4e); color: #0d1419; border: none; padding: 12px 28px; border-radius: 4px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3); display: block; width: 100%;">برای خریداران</button>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section directions-section">
+        <div class="container">
+            <h2 class="section-title" data-translate="directionsTitle">ما فعالیت‌های خود را در دو جهت اصلی توسعه می‌دهیم:</h2>
+            <div class="directions-grid">
+                <div class="direction-card">
+                    <div class="direction-icon">🚂</div>
+                    <h3 data-translate="railTitle">حمل و نقل ریلی محصولات نفتی در واگن‌های تانکر</h3>
+                    <p><strong data-translate="deliveryTerms">شرایط تحویل:</strong> <span data-translate="railTerms">CPT, FCA, EXW</span></p>
+                    <p><strong data-translate="minBatch">حداقل دسته:</strong> <span data-translate="railMin">325 تن - 5 واگن</span></p>
+                </div>
+
+                <div class="direction-card">
+                    <div class="direction-icon">⛴️</div>
+                    <h3 data-translate="seaTitle">حمل و نقل دریایی محصولات نفتی در محموله‌های تانکر</h3>
+                    <p><strong data-translate="deliveryTerms">شرایط تحویل:</strong> <span data-translate="seaTerms">FOB, CFR</span></p>
+                    <p><strong data-translate="minBatch">حداقل دسته:</strong> <span data-translate="seaMin">5000 تن</span></p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="catalog" class="section catalog-section">
+        <div class="container">
+            <h2 class="section-title" data-translate="catalogTitle">کاتالوگ محصولات نفتی</h2>
+            <div class="catalog-grid">
+                <div class="catalog-column">
+                    <div class="product-list">
+                        <div class="product-item">
+                            <h4 data-translate="gasoline">بنزین موتور</h4>
+                            <p data-translate="gasolineTypes">AI-100, AI-98, AI-95, AI-92, AI-80</p>
+                        </div>
+                        <div class="product-item">
+                            <h4 data-translate="diesel">سوخت دیزل</h4>
+                            <p data-translate="dieselType">EURO 5</p>
+                        </div>
+                        <div class="product-item">
+                            <h4 data-translate="maslotype">روغن پایه</h4>
+                            <p>SN-180, SN-350, SN-600</p>
+                        </div>
+                        <div class="product-item">
+                            <h4 data-translate="burovoy">باریت حفاری</h4>
+                            <p data-translate="plotnost">چگالی 4.2 g/cm3</p>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="catalog-column">
+                    <div class="product-list">
+                        <div class="product-item">
+                            <h4 data-translate="bitumen">قیر نفتی جاده‌ای</h4>
+                            <p data-translate="bitumenDesc">قیر با کیفیت برای ساخت جاده</p>
+                        </div>
+                        <div class="product-item">
+                            <h4 data-translate="mazut">نفت کوره</h4>
+                            <p data-translate="mazutTypes">M-40, M-100</p>
+                        </div>
+                        <div class="product-item">
+                            <h4 data-translate="coke">کک نفتی</h4>
+                            <p data-translate="cokeDesc">GPC</p>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section partners-section">
+        <div class="container">
+            <h2 class="section-title" data-translate="partnersTitle">دسته‌بندی شرکای ما</h2>
+            <div class="partners-grid">
+                <div class="partner-card" style="animation-delay: 0.1s;">
+                    <div class="partner-icon">🏛️</div>
+                    <h3 data-translate="partnerGov">شرکت‌های دولتی</h3>
+                </div>
+                <div class="partner-card" style="animation-delay: 0.2s;">
+                    <div class="partner-icon">🌾</div>
+                    <h3 data-translate="partnerAgro">شرکت‌های کشاورزی</h3>
+                </div>
+                <div class="partner-card" style="animation-delay: 0.3s;">
+                    <div class="partner-icon">🏭</div>
+                    <h3 data-translate="partnerRefinery">پالایشگاه‌های نفت</h3>
+                </div>
+                <div class="partner-card" style="animation-delay: 0.4s;">
+                    <div class="partner-icon">🛣️</div>
+                    <h3 data-translate="partnerRoad">شرکت‌های ساخت جاده</h3>
+                </div>
+                <div class="partner-card" style="animation-delay: 0.5s;">
+                    <div class="partner-icon">⛽</div>
+                    <h3 data-translate="partnerAzs">جایگاه‌های سوخت و ترمینال‌های نفتی</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section global-section">
+        <div class="container">
+            <h2 class="section-title" data-translate="globalTitle">فعالیت در سراسر جهان</h2>
+            <p class="section-text" data-translate="globalText">ما عملیات تجاری روزانه برای تامین محصولات نفتی در آسیای مرکزی، جنوبی و شرقی، اروپای شرقی، آفریقای شمالی و شرقی و خاورمیانه انجام می‌دهیم.</p>
+            <div class="global-highlight">
+                <p data-translate="globalHighlight1">🌍 حضور جهانی در بازارهای کلیدی</p>
+                <p data-translate="globalHighlight2">شبکه ما تمام مسیرهای تجاری اصلی و مراکز لجستیک جهان را پوشش می‌دهد</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="logistics" class="section logistics-section">
+        <div class="container">
+            <h2 class="section-title" data-translate="logisticsSectionTitle">لجستیک و کیفیت</h2>
+            <div class="logistics-grid">
+                <div class="logistics-column">
+                    <h3 data-translate="logisticsSystem">سیستم لجستیک تثبیت شده</h3>
+                    <p data-translate="logisticsScience">لجستیک نفت یک علم کامل است که به برنامه‌ریزی، کنترل و بهینه‌سازی فرآیند انتقال کالا از تولیدکننده به مصرف‌کننده کمک می‌کند.</p>
+                    <p data-translate="logisticsBase">لجستیک، ذخیره‌سازی و توزیع مهم‌ترین پایه کسب‌وکار ما است.</p>
+                </div>
+                <div class="logistics-column">
+                    <h3 data-translate="qualityStandards">استانداردهای کیفیت</h3>
+                    <p data-translate="qualityResp">ما مسئولیت کامل کیفیت خدمات خود را مطابق با استانداردهای بین‌المللی می‌پذیریم</p>
+                    <div class="quality-box">
+                        <p><strong data-translate="isoCertified">گواهی ISO</strong></p>
+                        <p data-translate="isoDesc">تمام عملیات با استانداردهای بین‌المللی کیفیت و ایمنی مطابقت دارد</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section cooperation-section">
+        <div class="container">
+            <h2 class="section-title" data-translate="cooperationTitle">نحوه شروع همکاری</h2>
+            <div class="steps-grid">
+                <div class="step-card" style="animation-delay: 0.1s;">
+                    <div class="step-number">1</div>
+                    <h4 data-translate="step1">انطباق</h4>
+                    <p data-translate="step1desc">ارائه اسناد تاسیس</p>
+                </div>
+                <div class="step-card" style="animation-delay: 0.2s;">
+                    <div class="step-number">2</div>
+                    <h4 data-translate="step2">هماهنگی</h4>
+                    <p data-translate="step2desc">پیشنهاد قیمت</p>
+                </div>
+                <div class="step-card" style="animation-delay: 0.3s;">
+                    <div class="step-number">3</div>
+                    <h4 data-translate="step3">جزئیات</h4>
+                    <p data-translate="step3desc">دریافت درخواست جزئیات</p>
+                </div>
+                <div class="step-card" style="animation-delay: 0.4s;">
+                    <div class="step-number">4</div>
+                    <h4 data-translate="step4">قرارداد</h4>
+                    <p data-translate="step4desc">امضای قرارداد و مشخصات</p>
+                </div>
+                <div class="step-card" style="animation-delay: 0.5s;">
+                    <div class="step-number">5</div>
+                    <h4 data-translate="step5">پرداخت</h4>
+                    <p data-translate="step5desc">طبق فاکتور صادر شده</p>
+                </div>
+                <div class="step-card" style="animation-delay: 0.6s;">
+                    <div class="step-number">6</div>
+                    <h4 data-translate="step6">حمل</h4>
+                    <p data-translate="step6desc">حمل محصول</p>
+                </div>
+                <div class="step-card" style="animation-delay: 0.7s;">
+                    <div class="step-number">7</div>
+                    <h4 data-translate="step7">تحویل</h4>
+                    <p data-translate="step7desc">دریافت کالا در مقصد</p>
+                </div>
+                <div class="step-card" style="animation-delay: 0.8s;">
+                    <div class="step-number">8</div>
+                    <h4 data-translate="step8">بستن</h4>
+                    <p data-translate="step8desc">امضای اسناد پایانی</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title" data-translate="contactTitle">تماس با ما</h2>
+            <div class="contact-grid">
+		                <div class="contact-form-wrapper">
+		                    <h3 data-translate="contactFormTitle">مستقیماً با ما تماس بگیرید</h3>
+		                    <div class="contact-buttons">
+		                        <a href="https://wa.me/+99365616173" class="btn btn-whatsapp" data-translate="contactWhatsappButton">
+		                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12.04 2C6.58 2 2.14 6.44 2.14 11.96c0 1.76.46 3.48 1.35 4.99l-1.4 5.14 5.32-1.37c1.45.79 3.08 1.21 4.63 1.21 5.46 0 9.9-4.44 9.9-9.9S17.5 2 12.04 2zm3.95 13.98c-.24.61-.84.82-1.45.58l-2.48-1.02c-.54-.22-1.15-.22-1.69 0l-2.48 1.02c-.61.24-1.21.03-1.45-.58-.24-.61-.03-1.21.58-1.45l2.48-1.02c.61.24.82.84.58 1.45zM12.04 4c4.38 0 7.96 3.58 7.96 7.96 0 4.38-3.58 7.96-7.96 7.96-1.5 0-2.94-.42-4.18-1.21l-3.92.99 1.02-3.75c-.89-1.51-1.35-3.23-1.35-4.99C4.08 7.58 7.66 4 12.04 4zm2.8 10.42c-.18.45-.63.61-1.08.43l-2.08-.85c-.45-.18-.94-.18-1.39 0l-2.08.85c-.45.18-.9-.03-1.08-.48-.18-.45.03-.9.48-1.08l2.08-.85c.45-.18.94-.18 1.39 0l2.08.85c.45.18.61.63.43 1.08z"/></svg>
+		                            واتساپ
+		                        </a>
+		                    </div>
+		                </div>
+	                <div class="contact-info">
+	                    <h3 data-translate="contactInfo">اطلاعات</h3>
+	                    <p data-translate="contactDescription">مدیران ما سوال شما را بررسی می‌کنند، پیشنهادی آماده می‌کنند و در اسرع وقت با شما تماس می‌گیرند.</p>
+	                    <div class="info-item">
+	                        <span class="info-icon">📧</span>
+	                        <div>
+	                            <p><strong data-translate="email">ایمیل</strong></p>
+	                            <p>petrolsuppliertm@gmail.com</p>
+	                        </div>
+	                    </div>
+	                    <div class="info-item">
+	                        <span class="info-icon">📞</span>
+	                        <div>
+	                            <p><strong data-translate="phone">تلفن</strong></p>
+	                            <p>+993 65 616173</p>
+	                        </div>
+	                    </div>
+
+	                </div>
+	            </div>
+	        </div>
+	    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column footer-about">
+                    <button data-translate="about" onclick="scrollToSection('about')">درباره ما</button>
+                    
+                </div>
+                <div class="footer-column">
+                    <button data-translate="productsFooter" onclick="scrollToSection('catalog')">محصولات</button>
+                    
+                </div>
+                <div class="footer-column">
+                    <button data-translate="logisticsFooter" onclick="scrollToSection('logistics')">لجستیک</button>
+                    
+                </div>
+                <div class="footer-column">
+                    <button  data-translate="contactsFooter" onclick="scrollToSection('contact')">تماس</button>
+                    
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="footer-bottom">
+                <p data-translate="kollep">© حق چاپ 2025 BASH EMIR<br>گروه بین‌المللی تجارت انرژی</p>
+                <div class="social-links">
+                    <a href="https://wa.me/+99365616173">واتساپ</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

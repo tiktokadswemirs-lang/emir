@@ -1,0 +1,24 @@
+# Redirect to language-specific index files based on Accept-Language header
+# This is a server-side solution for better SEO and initial load performance.
+
+# Enable rewriting
+RewriteEngine On
+
+# 1. Check for English (en)
+RewriteCond %{HTTP:Accept-Language} ^(en) [NC]
+RewriteRule ^index\.html$ /index_en.html [L,R=302]
+
+# 2. Check for Farsi/Iranian (fa or ir)
+RewriteCond %{HTTP:Accept-Language} ^(fa|ir) [NC]
+RewriteRule ^index\.html$ /index_fa.html [L,R=302]
+
+# 3. Check for Turkish (tr)
+# Since we don't have an index_tr.html, we will redirect to the main index.html
+# and let the JS handle the translation. This is a compromise.
+# Alternatively, we can redirect to the main index.html and let the JS handle it.
+# For simplicity and to use the existing files, we will not add a specific rule for 'tr'
+# and let it fall through to the default (Russian) index.html, where the JS will load 'tr' if stored.
+
+# 4. Default to Russian (ru) if no match, or if index.html is requested directly
+# The original index.html is the Russian version.
+# No rule needed for the default case, as it will simply serve index.html

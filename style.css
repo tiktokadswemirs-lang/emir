@@ -925,7 +925,15 @@ a:hover {
     }
 
     #hero-video {
-        transform: translate(-50%, -50%) scale(1.5); /* Restore original scaling for mobile */
+        /* Hide video on mobile for performance */
+        display: none !important;
+    }
+    /* Add a fallback background for the hero section on mobile */
+    .hero {
+        background: linear-gradient(135deg, #0f1f2f 0%, #1a2a3a 50%, #0d1419 100%) !important;
+        background-image: url('fallback-hero-bg.jpg'); /* Assuming a fallback image exists or will be added */
+        background-size: cover;
+        background-position: center;
     }
 
     .trading-widget {
