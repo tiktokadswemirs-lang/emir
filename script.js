@@ -63,7 +63,6 @@ const translations = {
         seaTitle: "Морские отгрузки нефтепродуктов танкерными партиями",
         deliveryTerms: "Условия поставки",
         railTerms: "CPT, FCA, EXW",
-        seaTerms: "FOB, CFR",
         minBatch: "Минимальная партия",
         railMin: "325 тонн - 5 вагонов",
         seaMin: "5000 тонн",
@@ -218,24 +217,24 @@ const translations = {
         about: "درباره ما",
         contacts: "تماس",
         heroTitle: "محصولات نفتی در سراسر جهان",
-        heroSubtitle: "راه‌حل‌های نقدی و قراردادهای بلندمدت با قیمت‌گذاری شفاف",
+        heroSubtitle: "راه حل های نقطه ای و قراردادهای بلند مدت با قیمت گذاری شفاف",
         learnMore: "بیشتر بدانید",
         commercialOffer: "پیشنهاد تجاری",
         openProducerDocument: "برای تولیدکنندگان",
         openBuyerDocument: "برای خریداران",
         aboutSectionTitle: "درباره ما",
-        aboutCompany1: "BASH EMIR — ساختار تجارت نفت بین‌المللی است که به تجارت محصولات نفتی می‌پردازد.",
-        aboutCompany2: " شرکت ما طیف گسترده‌ای از فرآورده‌های نفتی را به‌صورت بین‌المللی تأمین و عرضه می‌کند. ما با تأمین‌کنندگان قابل‌اعتماد در روسیه، چین، هند، ایران، قزاقستان، آذربایجان و ترکمنستان و ترکیه همکاری می‌کنیم.",
-        directionsTitle: "ما فعالیت‌های خود را در دو جهت اصلی توسعه می‌دهیم:",
-        railTitle: "حمل و نقل ریلی محصولات نفتی در واگن‌های تانکر",
-        seaTitle: "حمل و نقل دریایی محصولات نفتی در محموله‌های تانکر",
+        aboutCompany1: "BASH EMIR — یک ساختار تجارت بین المللی نفت است که به تجارت فرآورده های نفتی مشغول است.",
+        aboutCompany2: "شرکت ما طیف گسترده ای از فرآورده های نفتی را در سطح بین المللی تهیه و عرضه می کند. ما با تامین کنندگان قابل اعتماد در روسیه، چین، هند، ایران، قزاقستان، آذربایجان، ترکمنستان، ترکیه همکاری می کنیم.",
+        directionsTitle: "ما فعالیت های خود را در دو جهت اصلی توسعه می دهیم:",
+        railTitle: "حمل و نقل ریلی فرآورده های نفتی با واگن تانکر",
+        seaTitle: "حمل و نقل دریایی فرآورده های نفتی در محموله های تانکری",
         deliveryTerms: "شرایط تحویل",
         railTerms: "CPT, FCA, EXW",
         seaTerms: "FOB, CFR",
         minBatch: "حداقل دسته",
         railMin: "325 تن - 5 واگن",
         seaMin: "5000 تن",
-        catalogTitle: "کاتالوگ محصولات نفتی",
+        catalogTitle: "کاتالوگ فرآورده های نفتی",
         gasoline: "بنزین موتور",
         gasolineTypes: "AI-100, AI-98, AI-95, AI-92, AI-80",
         diesel: "سوخت دیزل",
@@ -243,30 +242,30 @@ const translations = {
         maslotype: "روغن پایه",
         burovoy: "باریت حفاری",
         plotnost: "چگالی 4.2 g/cm3",
-        bitumen: "قیر نفتی جاده‌ای",
-        bitumenDesc: "قیر با کیفیت برای ساخت جاده",
-        mazut: "نفت کوره",
+        bitumen: "قیر نفتی جاده",
+        bitumenDesc: "قیر با کیفیت برای ساخت و ساز جاده",
+        mazut: "مازوت کوره",
         mazutTypes: "M-40, M-100",
         coke: "کک نفتی",
         cokeDesc: "GPC",
-        partnersTitle: "دسته‌بندی شرکای ما",
-        partnerGov: "شرکت‌های دولتی",
-        partnerAgro: "شرکت‌های کشاورزی",
-        partnerRefinery: "پالایشگاه‌های نفت",
-        partnerRoad: "شرکت‌های ساخت جاده",
-        partnerAzs: "جایگاه‌های سوخت و ترمینال‌های نفتی",
+        partnersTitle: "دسته بندی شرکای ما",
+        partnerGov: "شرکت های دولتی",
+        partnerAgro: "شرکت های کشاورزی",
+        partnerRefinery: "پالایشگاه های نفت",
+        partnerRoad: "شرکت های ساخت جاده",
+        partnerAzs: "ایستگاه های سوخت و پایانه های نفتی",
         globalTitle: "فعالیت در سراسر جهان",
-        globalText: "ما عملیات تجاری روزانه برای تامین محصولات نفتی در آسیای مرکزی، جنوبی و شرقی، اروپای شرقی، آفریقای شمالی و شرقی و خاورمیانه انجام می‌دهیم.",
+        globalText: "ما روزانه عملیات تجاری برای تامین فرآورده های نفتی در آسیای مرکزی، جنوبی و شرقی، اروپای شرقی، آفریقای شمالی و شرقی و خاورمیانه انجام می دهیم.",
         globalHighlight1: "🌍 حضور جهانی در بازارهای کلیدی",
-        globalHighlight2: "شبکه ما تمام مسیرهای تجاری اصلی و مراکز لجستیک جهان را پوشش می‌دهد",
+        globalHighlight2: "شبکه ما تمام مسیرهای تجاری اصلی و مراکز لجستیک جهان را پوشش می دهد",
         logisticsSectionTitle: "لجستیک و کیفیت",
         logisticsSystem: "سیستم لجستیک تثبیت شده",
-        logisticsScience: "لجستیک نفت یک علم کامل است که به برنامه‌ریزی، کنترل و بهینه‌سازی فرآیند انتقال کالا از تولیدکننده به مصرف‌کننده کمک می‌کند.",
-        logisticsBase: "لجستیک، ذخیره‌سازی و توزیع مهم‌ترین پایه کسب‌وکار ما است.",
+        logisticsScience: "لجستیک نفت یک علم کامل است که به برنامه ریزی، کنترل و بهینه سازی فرآیند انتقال کالا از تولیدکننده به مصرف کننده کمک می کند.",
+        logisticsBase: "لجستیک، ذخیره سازی و توزیع مهم ترین پایه کسب و کار ما است.",
         qualityStandards: "استانداردهای کیفیت",
-        qualityResp: "ما مسئولیت کامل کیفیت خدمات خود را مطابق با استانداردهای بین‌المللی می‌پذیریم",
+        qualityResp: "ما مسئولیت کامل کیفیت خدمات خود را مطابق با استانداردهای بین المللی می پذیریم",
         isoCertified: "گواهی ISO",
-        isoDesc: "تمام عملیات با استانداردهای بین‌المللی کیفیت و ایمنی مطابقت دارد",
+        isoDesc: "تمام عملیات با استانداردهای بین المللی کیفیت و ایمنی مطابقت دارد",
         cooperationTitle: "نحوه شروع همکاری",
         step1: "انطباق",
         step1desc: "ارائه اسناد تاسیس",
@@ -288,13 +287,13 @@ const translations = {
         contactFormTitle: "مستقیماً با ما تماس بگیرید",
         contactWhatsappButton: "واتساپ",
         contactInfo: "اطلاعات",
-        contactDescription: "مدیران ما سوال شما را بررسی می‌کنند، پیشنهادی آماده می‌کنند و در اسرع وقت با شما تماس می‌گیرند.",
+        contactDescription: "مدیران ما سوال شما را بررسی می کنند، پیشنهادی آماده می کنند و در اسرع وقت با شما تماس می گیرند.",
         email: "ایمیل",
         phone: "تلفن",
         productsFooter: "محصولات",
         logisticsFooter: "لجستیک",
         contactsFooter: "تماس",
-        kollep: "© حق چاپ 2025 BASH EMIR<br>گروه بین‌المللی تجارت انرژی"
+        kollep: "© حق چاپ 2025 BASH EMIR<br>گروه بین المللی تجارت انرژی"
     },
     tr: {
         catalog: "Katalog",
@@ -341,7 +340,7 @@ const translations = {
         partnerAzs: "Akaryakıt İstasyonları ve Petrol Terminalleri",
         globalTitle: "Dünya Çapında Faaliyet Gösteriyoruz",
         globalText: "Orta, Güney ve Doğu Asya, Doğu Avrupa, Kuzey ve Doğu Afrika ve Orta Doğu ülkelerine petrol ürünleri tedariki için günlük ticari operasyonlar gerçekleştiriyoruz.",
-        globalHighlight1: "🌍 Anahtar pazarlarda Küresel Varlık",
+        globalHighlight1: "🌍 Global Varlık",
         globalHighlight2: "Ağımız, dünyanın tüm önemli ticaret yollarını ve lojistik merkezlerini kapsamaktadır",
         logisticsSectionTitle: "Lojistik ve Kalite",
         logisticsSystem: "Kurulu Lojistik Sistemi",
@@ -416,8 +415,8 @@ function switchLanguage(lang) {
 // REAL-TIME COMMODITY PRICES API
 // ===========================
 
-// const OIL_API_KEY = "e2e13101890a6549ff26639002140cd06df6cc50c2884cd1dc4c621dfa893bbd"; // API ключ закомментирован
-// const OIL_API_URL = "https://api.oilpriceapi.com/v1/prices/latest";
+const OIL_API_KEY = "e2e13101890a6549ff26639002140cd06df6cc50c2884cd1dc4c621dfa893bbd";
+const OIL_API_URL = "https://api.oilpriceapi.com/v1/prices/latest";
 
 async function fetchCommodityPrices() {
     const oilPriceElement = document.getElementById("oil-price");
@@ -428,33 +427,53 @@ async function fetchCommodityPrices() {
     if (!oilPriceElement) return;
 
     try {
-// 1. Заглушка для цены на нефть Brent, так как API не работает или ключ недействителен.
-        const lastOilPrice = parseFloat(localStorage.getItem("lastOilPrice")) || 85.50;
-        const oilChange = (Math.random() - 0.5) * 0.5; // ±0.25
-        let newOilPrice = lastOilPrice + oilChange;
-        newOilPrice = Math.max(80.00, Math.min(90.00, newOilPrice));
+        // 1. Получение реальной цены на нефть Brent
+        const response = await fetch(OIL_API_URL, {
+            headers: {
+                "Authorization": `Token ${OIL_API_KEY}`,
+                "Content-Type": "application/json"
+            }
+        });
 
-        // Обновляем DOM для цены
-        oilPriceElement.textContent = `$${newOilPrice.toFixed(2)}`;
-        
-        // Обновляем DOM для изменения цены
-        oilChangeElement.classList.remove("positive", "negative");
-        const changeText = oilChange.toFixed(2);
-        
-        if (oilChange > 0.01) {
-            oilChangeElement.classList.add("positive");
-            oilChangeElement.textContent = `+${changeText} ↑`;
-        } else if (oilChange < -0.01) {
-            oilChangeElement.classList.add("negative");
-            oilChangeElement.textContent = `${changeText} ↓`;
-        } else {
-            oilChangeElement.textContent = `${changeText}`;
+        if (!response.ok) {
+            throw new Error(`API request failed with status: ${response.status}`);
         }
 
-        // Сохраняем цену для расчета следующего изменения
-        localStorage.setItem("lastOilPrice", newOilPrice.toFixed(4));
+        const data = await response.json();
+        
+        // ИСПРАВЛЕНО: Корректная обработка ответа API для бесплатного тарифа
+        if (data.status === "success" && data.data && data.data.prices && data.data.prices.length > 0) {
+            const newOilPrice = parseFloat(data.data.prices[0].price);
+            const lastPrice = parseFloat(localStorage.getItem("lastOilPrice")) || newOilPrice;
+            const change = newOilPrice - lastPrice;
 
-        // 2. Симуляция для Natural Gas и Gold (продолжаем симуляцию)
+            // Обновляем DOM для цены
+            oilPriceElement.textContent = `$${newOilPrice.toFixed(2)}`;
+            
+            // Обновляем DOM для изменения цены
+            oilChangeElement.classList.remove("positive", "negative");
+            const changeText = change.toFixed(2);
+            
+            if (change > 0.01) {
+                oilChangeElement.classList.add("positive");
+                oilChangeElement.textContent = `+${changeText} ↑`;
+            } else if (change < -0.01) {
+                oilChangeElement.classList.add("negative");
+                oilChangeElement.textContent = `${changeText} ↓`;
+            } else {
+                oilChangeElement.textContent = "0.00";
+            }
+
+            // Сохраняем цену для расчета следующего изменения
+            localStorage.setItem("lastOilPrice", newOilPrice.toFixed(4));
+
+        } else {
+            console.warn("Brent Crude price not found or API error.", data);
+            oilPriceElement.textContent = "API Error";
+            oilChangeElement.textContent = "N/A";
+        }
+
+        // 2. Симуляция для Natural Gas и Gold (так как API ключ предоставлен только для нефти)
         const lastGasPrice = parseFloat(localStorage.getItem("lastGasPrice")) || 2.85;
         const lastGoldPrice = parseFloat(localStorage.getItem("lastGoldPrice")) || 2045.30;
 
@@ -496,8 +515,8 @@ async function fetchCommodityPrices() {
 
     } catch (error) {
         console.error("Error fetching commodity prices:", error);
-        oilPriceElement.textContent = "N/A";
-        oilChangeElement.textContent = "N/A"; // Устанавливаем N/A вместо API Error
+        oilPriceElement.textContent = "API Error";
+        oilChangeElement.textContent = "N/A";
     }
 }
 
@@ -550,4 +569,3 @@ function downloadBuyerDocument() {
 
     window.open("/" + pdfFile, "_blank");
 }
-
