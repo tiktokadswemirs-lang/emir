@@ -558,7 +558,7 @@ function downloadProducerDocument() {
         pdfFile = "proposal_english.pdf";
     }
 
-    window.open(pdfFile, "_blank");
+    window.open("/" + pdfFile, "_blank");
 }
 
 function downloadBuyerDocument() {
@@ -568,6 +568,6 @@ function downloadBuyerDocument() {
         pdfFile = "proposal_klient_en.pdf";
     }
 
-    window.open(pdfFile, "_blank");
+    window.open("/" + pdfFile, "_blank");
 }
 
