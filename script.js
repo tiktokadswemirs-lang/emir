@@ -442,8 +442,8 @@ async function fetchCommodityPrices() {
 
         const data = await response.json();
         
-        // ИСПРАВЛЕНО: Корректная обработка ответа API для бесплатного тарифа
-        if (data.status === "success" && data.data.code === "BRENT_CRUDE_USD") {
+        // API call was successful, now process the data
+        if (data.status === "success" && data.data && data.data.price) {
             const newOilPrice = parseFloat(data.data.price);
             const lastPrice = parseFloat(localStorage.getItem("lastOilPrice")) || newOilPrice;
             const change = newOilPrice - lastPrice;
@@ -469,7 +469,7 @@ async function fetchCommodityPrices() {
             localStorage.setItem("lastOilPrice", newOilPrice.toFixed(4));
 
         } else {
-            console.warn("Brent Crude price not found or API error.", data);
+            console.warn("Brent Crude price not found or API error in response data.", data);
             oilPriceElement.textContent = "N/A";
             oilChangeElement.textContent = "N/A";
         }
