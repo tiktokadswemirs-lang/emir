@@ -873,7 +873,8 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-сштаба для мобильных, чтобы избежать пустого пространства */
+    #hero-video {
+        transform: translate(-50%, -50%) scale(1.5); /* Увеличение масштаба для мобильных, чтобы избежать пустого пространства */
     }
     .container {
         padding: 0 15px;
@@ -923,14 +924,14 @@ a:hover {
         font-size: 1rem;
     }
 
-    #hero-video {
-        /* Ensure video is visible on mobile */
-        display: b    #hero-video {
-        transform: translate(-50%, -50%) scale(1.5); /* Увеличение масштаба для мобильных, чтобы избежать пустого пространства */
-    }    /* Add a fallback background for the hero section on mobile */
+    /* #hero-video {
+        // Правило, скрывающее видео на мобильной версии, удалено по запросу пользователя.
+        // display: none !important;
+    } */
+    /* Add a fallback background for the hero section on mobile */
     .hero {
         background: linear-gradient(135deg, #0f1f2f 0%, #1a2a3a 50%, #0d1419 100%) !important;
-        /* background-image: url('fallback-hero-bg.jpg'); /* Assuming a fallback image exists or will be added */
+        background-image: url('fallback-hero-bg.jpg'); /* Assuming a fallback image exists or will be added */
         background-size: cover;
         background-position: center;
     }
@@ -940,14 +941,14 @@ a:hover {
         bottom: 20px;
         right: 10px;
         top: auto;
-        min-width: 140px;
-        padding: 10px;
-        font-size: 0.8rem;
-        max-width: 160px;
+        min-width: 180px; /* Увеличиваем минимальную ширину */
+        padding: 12px;
+        font-size: 0.9rem;
+        max-width: 200px; /* Увеличиваем максимальную ширину */
     }
 
     .widget-price {
-        font-size: 1.5rem;
+        font-size: 1.8rem; /* Увеличиваем размер шрифта цены */
     }
 
     .about-grid {
@@ -1026,17 +1027,21 @@ a:hover {
         font-size: 0.9rem;
     }
 
+    #hero-video {
+        transform: translate(-50%, -50%) scale(0.8) !important;
+    }
+
     .trading-widget {
         bottom: 15px;
         right: 10px;
-        min-width: 130px;
-        padding: 8px;
-        font-size: 0.75rem;
-        max-width: 150px;
+        min-width: 150px; /* Увеличиваем минимальную ширину */
+        padding: 10px;
+        font-size: 0.8rem;
+        max-width: 180px; /* Увеличиваем максимальную ширину */
     }
 
     .widget-price {
-        font-size: 1.2rem;
+        font-size: 1.4rem; /* Увеличиваем размер шрифта цены */
     }
 
     .btn {
@@ -1058,6 +1063,10 @@ a:hover {
         font-size: 1.5rem;
     }
 
+    /* Removed redundant and incorrect mobile rule for partners-grid at 480px, as 768px rule is sufficient and better */
+
+    /* Reverted to keep two columns on smaller screens as requested by user */
+
     .direction-card,
     .partner-card,
     .step-card {
@@ -1073,7 +1082,7 @@ a:hover {
     }
 
     .trading-widget {
-        min-width: 120px;
+        min-width: 140px; /* Увеличиваем минимальную ширину */
     }
 
     .footer-grid {
