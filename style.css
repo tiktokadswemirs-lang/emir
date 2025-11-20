@@ -873,8 +873,7 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-    #hero-video {
-        transform: translate(-50%, -50%) scale(1.5); /* Увеличение масштаба для мобильных, чтобы избежать пустого пространства */
+сштаба для мобильных, чтобы избежать пустого пространства */
     }
     .container {
         padding: 0 15px;
@@ -925,13 +924,13 @@ a:hover {
     }
 
     #hero-video {
-        /* Hide video on mobile for performance */
-        display: none !important;
-    }
-    /* Add a fallback background for the hero section on mobile */
+        /* Ensure video is visible on mobile */
+        display: b    #hero-video {
+        transform: translate(-50%, -50%) scale(1.5); /* Увеличение масштаба для мобильных, чтобы избежать пустого пространства */
+    }    /* Add a fallback background for the hero section on mobile */
     .hero {
         background: linear-gradient(135deg, #0f1f2f 0%, #1a2a3a 50%, #0d1419 100%) !important;
-        background-image: url('fallback-hero-bg.jpg'); /* Assuming a fallback image exists or will be added */
+        /* background-image: url('fallback-hero-bg.jpg'); /* Assuming a fallback image exists or will be added */
         background-size: cover;
         background-position: center;
     }
@@ -1027,10 +1026,6 @@ a:hover {
         font-size: 0.9rem;
     }
 
-    #hero-video {
-        transform: translate(-50%, -50%) scale(0.8) !important;
-    }
-
     .trading-widget {
         bottom: 15px;
         right: 10px;
@@ -1062,10 +1057,6 @@ a:hover {
     .section-title {
         font-size: 1.5rem;
     }
-
-    /* Removed redundant and incorrect mobile rule for partners-grid at 480px, as 768px rule is sufficient and better */
-
-    /* Reverted to keep two columns on smaller screens as requested by user */
 
     .direction-card,
     .partner-card,
