@@ -416,8 +416,8 @@ function switchLanguage(lang) {
 // REAL-TIME COMMODITY PRICES API
 // ===========================
 
-const OIL_API_KEY = "e2e13101890a6549ff26639002140cd06df6cc50c2884cd1dc4c621dfa893bbd";
-const OIL_API_URL = "https://api.oilpriceapi.com/v1/prices/latest";
+// const OIL_API_KEY = "e2e13101890a6549ff26639002140cd06df6cc50c2884cd1dc4c621dfa893bbd"; // API ключ закомментирован
+// const OIL_API_URL = "https://api.oilpriceapi.com/v1/prices/latest";
 
 async function fetchCommodityPrices() {
     const oilPriceElement = document.getElementById("oil-price");
@@ -428,53 +428,33 @@ async function fetchCommodityPrices() {
     if (!oilPriceElement) return;
 
     try {
-        // 1. Получение реальной цены на нефть Brent
-        const response = await fetch(OIL_API_URL, {
-            headers: {
-                "Authorization": `Token ${OIL_API_KEY}`,
-                "Content-Type": "application/json"
-            }
-        });
+// 1. Заглушка для цены на нефть Brent, так как API не работает или ключ недействителен.
+        const lastOilPrice = parseFloat(localStorage.getItem("lastOilPrice")) || 85.50;
+        const oilChange = (Math.random() - 0.5) * 0.5; // ±0.25
+        let newOilPrice = lastOilPrice + oilChange;
+        newOilPrice = Math.max(80.00, Math.min(90.00, newOilPrice));
 
-        if (!response.ok) {
-            throw new Error(`API request failed with status: ${response.status}`);
-        }
-
-        const data = await response.json();
+        // Обновляем DOM для цены
+        oilPriceElement.textContent = `$${newOilPrice.toFixed(2)}`;
         
-        // ИСПРАВЛЕНО: Корректная обработка ответа API для бесплатного тарифа
-        if (data.status === "success" && data.data.code === "BRENT_CRUDE_USD") {
-            const newOilPrice = parseFloat(data.data.price);
-            const lastPrice = parseFloat(localStorage.getItem("lastOilPrice")) || newOilPrice;
-            const change = newOilPrice - lastPrice;
-
-            // Обновляем DOM для цены
-            oilPriceElement.textContent = `$${newOilPrice.toFixed(2)}`;
-            
-            // Обновляем DOM для изменения цены
-            oilChangeElement.classList.remove("positive", "negative");
-            const changeText = change.toFixed(2);
-            
-            if (change > 0.01) {
-                oilChangeElement.classList.add("positive");
-                oilChangeElement.textContent = `+${changeText} ↑`;
-            } else if (change < -0.01) {
-                oilChangeElement.classList.add("negative");
-                oilChangeElement.textContent = `${changeText} ↓`;
-            } else {
-                oilChangeElement.textContent = "0.00";
-            }
-
-            // Сохраняем цену для расчета следующего изменения
-            localStorage.setItem("lastOilPrice", newOilPrice.toFixed(4));
-
+        // Обновляем DOM для изменения цены
+        oilChangeElement.classList.remove("positive", "negative");
+        const changeText = oilChange.toFixed(2);
+        
+        if (oilChange > 0.01) {
+            oilChangeElement.classList.add("positive");
+            oilChangeElement.textContent = `+${changeText} ↑`;
+        } else if (oilChange < -0.01) {
+            oilChangeElement.classList.add("negative");
+            oilChangeElement.textContent = `${changeText} ↓`;
         } else {
-            console.warn("Brent Crude price not found or API error.", data);
-            oilPriceElement.textContent = "N/A";
-            oilChangeElement.textContent = "N/A";
+            oilChangeElement.textContent = `${changeText}`;
         }
 
-        // 2. Симуляция для Natural Gas и Gold (так как API ключ предоставлен только для нефти)
+        // Сохраняем цену для расчета следующего изменения
+        localStorage.setItem("lastOilPrice", newOilPrice.toFixed(4));
+
+        // 2. Симуляция для Natural Gas и Gold (продолжаем симуляцию)
         const lastGasPrice = parseFloat(localStorage.getItem("lastGasPrice")) || 2.85;
         const lastGoldPrice = parseFloat(localStorage.getItem("lastGoldPrice")) || 2045.30;
 
@@ -516,8 +496,8 @@ async function fetchCommodityPrices() {
 
     } catch (error) {
         console.error("Error fetching commodity prices:", error);
-        oilPriceElement.textContent = "API Error";
-        oilChangeElement.textContent = "N/A";
+        oilPriceElement.textContent = "N/A";
+        oilChangeElement.textContent = "N/A"; // Устанавливаем N/A вместо API Error
     }
 }
 
