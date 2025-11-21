@@ -5,17 +5,14 @@
 function toggleMobileMenu() {
     const mobileMenu = document.getElementById("mobileMenu");
     const menuBtn = document.querySelector(".mobile-menu-btn");
-    
     mobileMenu.classList.toggle("active");
     menuBtn.classList.toggle("active");
 }
 
-// Close mobile menu when clicking outside
 document.addEventListener("click", function(event) {
     const header = document.querySelector(".header");
     const mobileMenu = document.getElementById("mobileMenu");
     const menuBtn = document.querySelector(".mobile-menu-btn");
-    
     if (!header.contains(event.target) && mobileMenu.classList.contains("active")) {
         mobileMenu.classList.remove("active");
         menuBtn.classList.remove("active");
@@ -38,10 +35,9 @@ function scrollToSection(sectionId) {
 }
 
 // ===========================
-// LANGUAGE SWITCHER
+// LANGUAGE SWITCHER (DATA)
 // ===========================
-
-let currentLanguage = getInitialLanguage();
+// ВАЖНО: Объект translations должен быть объявлен ДО функций, которые его используют!
 
 const translations = {
     ru: {
@@ -63,6 +59,7 @@ const translations = {
         seaTitle: "Морские отгрузки нефтепродуктов танкерными партиями",
         deliveryTerms: "Условия поставки",
         railTerms: "CPT, FCA, EXW",
+        seaTerms: "FOB, CFR",
         minBatch: "Минимальная партия",
         railMin: "325 тонн - 5 вагонов",
         seaMin: "5000 тонн",
@@ -302,69 +299,69 @@ const translations = {
         contacts: "İletişim",
         heroTitle: "Dünya Çapında Petrol Ürünleri",
         heroSubtitle: "Şeffaf fiyatlandırma ile spot çözümler ve uzun vadeli sözleşmeler",
-        learnMore: "Daha Fazlasını Öğrenin",
+        learnMore: "Hakkımızda daha fazla bilgi edinin",
         commercialOffer: "Ticari Teklif",
         openProducerDocument: "Üreticiler İçin",
         openBuyerDocument: "Alıcılar İçin",
         aboutSectionTitle: "Hakkımızda",
         aboutCompany1: "BASH EMIR — petrol ürünleri ticareti yapan uluslararası bir petrol ticaret yapısıdır.",
-        aboutCompany2: "Şirketimiz, uluslararası alanda çok çeşitli petrol ürünleri tedarik etmekte ve temin etmektedir. Rusya, Çin, Hindistan, İran, Kazakistan, Azerbaycan, Türkmenistan ve Türkiye'deki güvenilir tedarikçilerle işbirliği yapmaktayız.",
+        aboutCompany2: "Şirketimiz uluslararası alanda geniş bir yelpazede petrol ürünleri tedarik etmektedir. Rusya, Çin, Hindistan, İran, Kazakistan, Azerbaycan, Türkmenistan, Türkiye'deki güvenilir tedarikçilerle çalışıyoruz.",
         directionsTitle: "Faaliyetlerimizi iki ana yönde geliştiriyoruz:",
-        railTitle: "Demiryolu ile vagon-tankerlerle petrol ürünleri sevkiyatı",
-        seaTitle: "Denizyolu ile tanker partileri halinde petrol ürünleri sevkiyatı",
+        railTitle: "Tanker vagonlarla demiryolu petrol ürünleri sevkiyatları",
+        seaTitle: "Tanker partileriyle deniz yolu petrol ürünleri sevkiyatları",
         deliveryTerms: "Teslimat şartları",
         railTerms: "CPT, FCA, EXW",
         seaTerms: "FOB, CFR",
-        minBatch: "Minimum Parti",
+        minBatch: "Minimum parti",
         railMin: "325 ton - 5 vagon",
         seaMin: "5000 ton",
         catalogTitle: "Petrol Ürünleri Kataloğu",
-        gasoline: "Motorlu Benzinler",
+        gasoline: "Motor Benzinleri",
         gasolineTypes: "AI-100, AI-98, AI-95, AI-92, AI-80",
         diesel: "Dizel Yakıt",
         dieselType: "EURO 5",
-        maslotype: "Baz Yağı",
-        burovoy: "Sondaj Barit",
-        plotnost: "Özgül Ağırlık 4.2 g/cm3",
+        maslotype: "Baz Yağ",
+        burovoy: "Sondaj Bariti",
+        plotnost: "yoğunluk 4.2 g/cm3",
         bitumen: "Yol Petrol Bitümü",
         bitumenDesc: "Yol yapımı için kaliteli bitüm",
-        mazut: "Ateşleme Mazotu",
+        mazut: "Yakıt Yağı",
         mazutTypes: "M-40, M-100",
         coke: "Petrol Koku",
         cokeDesc: "GPC",
         partnersTitle: "Ortaklarımızın Kategorileri",
-        partnerGov: "Devlet Kuruluşları",
+        partnerGov: "Devlet İşletmeleri",
         partnerAgro: "Tarım İşletmeleri",
         partnerRefinery: "Petrol Rafinerileri",
         partnerRoad: "Yol İnşaat Şirketleri",
         partnerAzs: "Akaryakıt İstasyonları ve Petrol Terminalleri",
-        globalTitle: "Dünya Çapında Faaliyet Gösteriyoruz",
-        globalText: "Orta, Güney ve Doğu Asya, Doğu Avrupa, Kuzey ve Doğu Afrika ve Orta Doğu ülkelerine petrol ürünleri tedariki için günlük ticari operasyonlar gerçekleştiriyoruz.",
-        globalHighlight1: "🌍 Global Varlık",
-        globalHighlight2: "Ağımız, dünyanın tüm önemli ticaret yollarını ve lojistik merkezlerini kapsamaktadır",
+        globalTitle: "Dünya Çapında Çalışıyoruz",
+        globalText: "Orta, Güney ve Doğu Asya, Doğu Avrupa, Kuzey ve Doğu Afrika ve Orta Doğu ülkelerine petrol ürünleri tedariki için günlük ticaret işlemleri gerçekleştiriyoruz.",
+        globalHighlight1: "🌍 Kilit Pazarlarda Küresel Varlık",
+        globalHighlight2: "Ağımız, dünyadaki tüm ana ticaret yollarını ve lojistik merkezlerini kapsamaktadır",
         logisticsSectionTitle: "Lojistik ve Kalite",
-        logisticsSystem: "Kurulu Lojistik Sistemi",
-        logisticsScience: "Petrol ürünleri lojistiği, ürünlerin üreticiden tüketiciye aktarılma sürecini planlamaya, kontrol etmeye ve optimize etmeye yardımcı olan eksiksiz bir bilimdir.",
+        logisticsSystem: "Kurulmuş Lojistik Sistemi",
+        logisticsScience: "Petrol lojistiği, malların üreticiden tüketiciye transfer sürecini planlamaya, kontrol etmeye ve optimize etmeye yardımcı olan eksiksiz bir bilimdir.",
         logisticsBase: "Lojistik, depolama ve dağıtım işimizin en önemli temelidir.",
         qualityStandards: "Kalite Standartları",
         qualityResp: "Hizmetlerimizin kalitesinden Uluslararası Standartlara uygun olarak tam sorumluluk alıyoruz",
         isoCertified: "ISO Sertifikalı",
-        isoDesc: "Tüm operasyonlar uluslararası kalite ve güvenlik standartlarına uygundur",
+        isoDesc: "Tüm işlemler uluslararası kalite ve güvenlik standartlarına uygundur",
         cooperationTitle: "İşbirliğine Nasıl Başlanır",
-        step1: "Uyum (Compliance)",
+        step1: "Uyum",
         step1desc: "Kurucu belgelerin sağlanması",
         step2: "Koordinasyon",
         step2desc: "Fiyat teklifi",
         step3: "Detaylar",
-        step3desc: "Detay talebinin alınması",
+        step3desc: "Detay talebi alma",
         step4: "Sözleşme",
-        step4desc: "Sözleşme ve teknik şartnamelerin imzalanması",
+        step4desc: "Sözleşme ve şartnamelerin imzalanması",
         step5: "Ödeme",
-        step5desc: "Düzenlenen faturaya göre",
+        step5desc: "Kesilen faturaya göre",
         step6: "Sevkiyat",
         step6desc: "Ürün sevkiyatı",
         step7: "Teslimat",
-        step7desc: "Varış noktasında ürünün alınması",
+        step7desc: "Varış noktasında mal teslimi",
         step8: "Kapanış",
         step8desc: "Kapanış belgelerinin imzalanması",
         contactTitle: "Bize Ulaşın",
@@ -381,35 +378,41 @@ const translations = {
     }
 };
 
+// ===========================
+// LANGUAGE SWITCHER (LOGIC)
+// ===========================
+
 function getInitialLanguage() {
-    const path = window.location.pathname;
-    if (path.includes("index_en.html")) return "en";
-    if (path.includes("index_fa.html")) return "ir";
-    // Default to Russian if no specific file is found, or use stored preference
-    return localStorage.getItem("currentLanguage") || "ru";
+    const savedLang = localStorage.getItem('language');
+    const browserLang = navigator.language.substring(0, 2);
+    // Теперь translations уже определен, ошибок не будет
+    if (savedLang && translations[savedLang]) return savedLang;
+    if (translations[browserLang]) return browserLang;
+    return 'ru';
 }
 
 function switchLanguage(lang) {
+    if (!translations[lang]) return;
     currentLanguage = lang;
-    localStorage.setItem("currentLanguage", lang);
-    const elements = document.querySelectorAll("[data-translate]");
-    
-    elements.forEach(element => {
-        const key = element.getAttribute("data-translate");
-        if (translations[lang] && translations[lang][key]) {
-            element.innerHTML = translations[lang][key];
-        }
-    });
-    
+    localStorage.setItem('language', lang);
+    document.body.classList.add('language-switching');
+    setTimeout(() => {
+        document.querySelectorAll('[data-translate]').forEach(el => {
+            const key = el.getAttribute('data-translate');
+            if (translations[lang][key]) el.innerHTML = translations[lang][key];
+        });
+        document.body.classList.remove('language-switching');
+    }, 150);
     document.querySelectorAll(".lang-btn").forEach(btn => {
         btn.classList.remove("active");
-        if (btn.getAttribute("data-lang") === lang) {
-            btn.classList.add("active");
-        }
+        if (btn.getAttribute("data-lang") === lang) btn.classList.add("active");
     });
-
     document.documentElement.lang = lang;
 }
+
+// Инициализация языка (должна быть после объявления функций и объекта translations)
+let currentLanguage = getInitialLanguage();
+
 
 // ===========================
 // REAL-TIME COMMODITY PRICES API
@@ -427,7 +430,6 @@ async function fetchCommodityPrices() {
     if (!oilPriceElement) return;
 
     try {
-        // 1. Получение реальной цены на нефть Brent
         const response = await fetch(OIL_API_URL, {
             headers: {
                 "Authorization": `Token ${OIL_API_KEY}`,
@@ -435,50 +437,50 @@ async function fetchCommodityPrices() {
             }
         });
 
-        if (!response.ok) {
-            throw new Error(`API request failed with status: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
-        const data = await response.json();
+        const jsonResponse = await response.json();
         
-        // ИСПРАВЛЕНО: Корректная обработка ответа API для бесплатного тарифа
-        if (data.status === "success" && data.data && data.data.prices && data.data.prices.length > 0) {
-            const newOilPrice = parseFloat(data.data.prices[0].price);
-            const lastPrice = parseFloat(localStorage.getItem("lastOilPrice")) || newOilPrice;
-            const change = newOilPrice - lastPrice;
+        // ИСПРАВЛЕНИЕ: Получаем цену из data.data.price
+        const rawPrice = jsonResponse?.data?.price;
 
-            // Обновляем DOM для цены
-            oilPriceElement.textContent = `$${newOilPrice.toFixed(2)}`;
-            
-            // Обновляем DOM для изменения цены
-            oilChangeElement.classList.remove("positive", "negative");
-            const changeText = change.toFixed(2);
-            
-            if (change > 0.01) {
-                oilChangeElement.classList.add("positive");
-                oilChangeElement.textContent = `+${changeText} ↑`;
-            } else if (change < -0.01) {
-                oilChangeElement.classList.add("negative");
-                oilChangeElement.textContent = `${changeText} ↓`;
-            } else {
-                oilChangeElement.textContent = "0.00";
-            }
-
-            // Сохраняем цену для расчета следующего изменения
-            localStorage.setItem("lastOilPrice", newOilPrice.toFixed(4));
-
-        } else {
-            console.warn("Brent Crude price not found or API error.", data);
-            oilPriceElement.textContent = "API Error";
-            oilChangeElement.textContent = "N/A";
+        // Проверка на то, что цена действительно пришла
+        if (typeof rawPrice === 'undefined' || rawPrice === null) {
+            throw new Error("Price data missing in API response");
         }
 
-        // 2. Симуляция для Natural Gas и Gold (так как API ключ предоставлен только для нефти)
+        const newOilPrice = parseFloat(rawPrice);
+
+        if (isNaN(newOilPrice)) {
+            throw new Error("Price is NaN");
+        }
+
+        const lastPrice = parseFloat(localStorage.getItem("lastOilPrice")) || newOilPrice;
+        const change = newOilPrice - lastPrice;
+
+        oilPriceElement.textContent = `$${newOilPrice.toFixed(2)}`;
+
+        oilChangeElement.classList.remove("positive", "negative");
+        const changeText = Math.abs(change).toFixed(2);
+
+        if (change > 0.01) {
+            oilChangeElement.classList.add("positive");
+            oilChangeElement.textContent = `+${changeText} ↑`;
+        } else if (change < -0.01) {
+            oilChangeElement.classList.add("negative");
+            oilChangeElement.textContent = `-${changeText} ↓`;
+        } else {
+            oilChangeElement.textContent = "0.00";
+        }
+
+        localStorage.setItem("lastOilPrice", newOilPrice.toFixed(4));
+
+        // Имитация данных для газа и золота
         const lastGasPrice = parseFloat(localStorage.getItem("lastGasPrice")) || 2.85;
         const lastGoldPrice = parseFloat(localStorage.getItem("lastGoldPrice")) || 2045.30;
 
-        const gasChange = (Math.random() - 0.5) * 0.15; // ±0.075
-        const goldChange = (Math.random() - 0.5) * 15; // ±7.5
+        const gasChange = (Math.random() - 0.5) * 0.15;
+        const goldChange = (Math.random() - 0.5) * 15;
 
         let newGasPrice = lastGasPrice + gasChange;
         let newGoldPrice = lastGoldPrice + goldChange;
@@ -486,7 +488,6 @@ async function fetchCommodityPrices() {
         newGasPrice = Math.max(2.5, Math.min(3.5, newGasPrice));
         newGoldPrice = Math.max(2000, Math.min(2100, newGoldPrice));
 
-        // Gas change
         gasChangeElement.classList.remove("positive", "negative");
         if (gasChange > 0.01) {
             gasChangeElement.classList.add("positive");
@@ -498,7 +499,6 @@ async function fetchCommodityPrices() {
             gasChangeElement.textContent = `${gasChange.toFixed(3)}`;
         }
 
-        // Gold change
         goldChangeElement.classList.remove("positive", "negative");
         if (goldChange > 1) {
             goldChangeElement.classList.add("positive");
@@ -515,60 +515,42 @@ async function fetchCommodityPrices() {
 
     } catch (error) {
         console.error("Error fetching commodity prices:", error);
-        oilPriceElement.textContent = "API Error";
-        oilChangeElement.textContent = "N/A";
+        // При ошибке показываем кэш или N/A
+        const cachedPrice = localStorage.getItem("lastOilPrice");
+        if (cachedPrice && !isNaN(parseFloat(cachedPrice))) {
+             oilPriceElement.textContent = `$${parseFloat(cachedPrice).toFixed(2)}`;
+             oilChangeElement.textContent = "...";
+        } else {
+             oilPriceElement.textContent = `API Error`;
+             oilChangeElement.textContent = "N/A";
+        }
     }
 }
 
-// Инициализация при загрузке страницы
-document.addEventListener("DOMContentLoaded", function() {
-    // Применяем сохраненный язык
+// ===========================
+// INIT
+// ===========================
+
+document.addEventListener("DOMContentLoaded", function () {
     switchLanguage(currentLanguage);
-    
-    // Первоначальная загрузка цен
     fetchCommodityPrices();
-    
-    // Обновление каждые 5 минут
-    // Примечание: Частота обновления зависит от ограничений API
     setInterval(fetchCommodityPrices, 300000);
 });
 
-
 // ===========================
-// SEARCH FUNCTIONALITY (OPTIONAL)
+// SEARCH & DOWNLOADS
 // ===========================
 
 function toggleSearch() {
-    // Добавьте функционал поиска при необходимости
     console.log("Search functionality");
 }
 
-// Инициализация Three.js (если используется)
-// Код для 3D анимации можно добавить здесь при необходимости
-
-
-// ===========================
-// DOCUMENT DOWNLOAD FUNCTION
-// ===========================
-
 function downloadProducerDocument() {
-    let pdfFile = "proposal.pdf";
-
-    if (currentLanguage === "en") {
-        pdfFile = "proposal_english.pdf";
-    }
-
+    let pdfFile = currentLanguage === "en" ? "proposal_english.pdf" : "proposal.pdf";
     window.open("/" + pdfFile, "_blank");
 }
 
 function downloadBuyerDocument() {
-    let pdfFile = "proposal_klient.pdf";
-
-    if (currentLanguage === "en") {
-        pdfFile = "proposal_klient_en.pdf";
-    }
-
+    let pdfFile = currentLanguage === "en" ? "proposal_klient_en.pdf" : "proposal_klient.pdf";
     window.open("/" + pdfFile, "_blank");
 }
-
-
