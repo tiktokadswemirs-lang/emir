@@ -287,7 +287,7 @@ a:hover {
     width: auto;
     height: auto;
     z-index: 1;
-    transform: translate(-50%, -50%) scale(1.1);
+    transform: translate(-50%, -50%) scale(1.0);
     object-fit: cover;
 }
 
@@ -872,10 +872,10 @@ a:hover {
     }
 }
 
-@media (max-width: 768px) {
-    #hero-video {
-        transform: translate(-50%, -50%) scale(1.5); /* Увеличение масштаба для мобильных, чтобы избежать пустого пространства */
-    }
+    @media (max-width: 768px) {
+        #hero-video {
+            transform: translate(-50%, -50%) scale(1.0); /* Уменьшение масштаба для мобильных, чтобы видео было видно */
+        }
     .container {
         padding: 0 15px;
     }
@@ -923,11 +923,7 @@ a:hover {
     .hero-subtitle {
         font-size: 1rem;
     }
-
-    /* #hero-video {
-        // Правило, скрывающее видео на мобильной версии, удалено по запросу пользователя.
-        // display: none !important;
-    } */
+    
     /* Add a fallback background for the hero section on mobile */
     .hero {
         background: linear-gradient(135deg, #0f1f2f 0%, #1a2a3a 50%, #0d1419 100%) !important;
@@ -941,14 +937,14 @@ a:hover {
         bottom: 20px;
         right: 10px;
         top: auto;
-        min-width: 180px; /* Увеличиваем минимальную ширину */
-        padding: 12px;
-        font-size: 0.9rem;
-        max-width: 200px; /* Увеличиваем максимальную ширину */
+        min-width: 140px;
+        padding: 10px;
+        font-size: 0.8rem;
+        max-width: 160px;
     }
 
     .widget-price {
-        font-size: 1.8rem; /* Увеличиваем размер шрифта цены */
+        font-size: 1.5rem;
     }
 
     .about-grid {
@@ -1028,20 +1024,20 @@ a:hover {
     }
 
     #hero-video {
-        transform: translate(-50%, -50%) scale(0.8) !important;
+        transform: translate(-50%, -50%) !important;
     }
 
     .trading-widget {
         bottom: 15px;
         right: 10px;
-        min-width: 150px; /* Увеличиваем минимальную ширину */
-        padding: 10px;
-        font-size: 0.8rem;
-        max-width: 180px; /* Увеличиваем максимальную ширину */
+        min-width: 130px;
+        padding: 8px;
+        font-size: 0.75rem;
+        max-width: 150px;
     }
 
     .widget-price {
-        font-size: 1.4rem; /* Увеличиваем размер шрифта цены */
+        font-size: 1.2rem;
     }
 
     .btn {
@@ -1082,7 +1078,7 @@ a:hover {
     }
 
     .trading-widget {
-        min-width: 140px; /* Увеличиваем минимальную ширину */
+        min-width: 120px;
     }
 
     .footer-grid {
