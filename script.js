@@ -53,7 +53,7 @@ const translations = {
         openBuyerDocument: "Для Покупателей",
         aboutSectionTitle: "О Нас",
         aboutCompany1: "BASH EMIR — международная нефтетрейдинговая структура, осуществляющая торговлю нефтепродуктами.",
-        aboutCompany2: "Наша компания осуществляет закупку и поставку широкого спектра нефтепродуктов на международном уровне. Мы работаем с надежными поставщиками в странах: Россия, Китай, Иран, Казахстан, Азербайджан, Туркменистан, Турция.",
+        aboutCompany2: "Наша компания осуществляет закупку и поставку широкого спектра нефтепродуктов на международном уровне. Мы работаем с надежными поставщиками в странах: Иран, Туркменистан, Китай, Россия, Казахстан, Азербайджан, Турция.",
         directionsTitle: "Мы занимаемся развитием своей деятельности в двух основных направлениях:",
         railTitle: "Железнодорожные отгрузки нефтепродуктов вагон-цистернами",
         seaTitle: "Морские отгрузки нефтепродуктов танкерными партиями",
@@ -137,7 +137,7 @@ const translations = {
         openBuyerDocument: "For Buyers",
         aboutSectionTitle: "About Us",
         aboutCompany1: "BASH EMIR — is an international oil trading structure engaged in the trade petroleum products.",
-        aboutCompany2: "Our company procures and supplies a wide range of petroleum products internationally. We work with reliable suppliers in Russia, China, Iran, Kazakhstan, Azerbaijan, Turkmenistan, Turkey.",
+        aboutCompany2: "Our company procures and supplies a wide range of petroleum products internationally. We work with reliable suppliers in Iran, Turkmenistan, China, Russia, Kazakhstan, Azerbaijan, Turkey.",
         directionsTitle: "We develop our activities in two main directions:",
         railTitle: "Rail shipments of petroleum products in tank cars",
         seaTitle: "Sea shipments of petroleum products in tanker batches",
@@ -305,7 +305,7 @@ const translations = {
         openBuyerDocument: "Alıcılar İçin",
         aboutSectionTitle: "Hakkımızda",
         aboutCompany1: "BASH EMIR — petrol ürünleri ticareti yapan uluslararası bir petrol ticaret yapısıdır.",
-        aboutCompany2: "Şirketimiz uluslararası alanda geniş bir yelpazede petrol ürünleri tedarik etmektedir. Rusya, Çin, İran, Kazakistan, Azerbaycan, Türkmenistan, Türkiye'deki güvenilir tedarikçilerle çalışıyoruz.",
+        aboutCompany2: "Şirketimiz uluslararası alanda geniş bir yelpazede petrol ürünleri tedarik etmektedir. İran, Türkmenistan, Çin, Rusya, Kazakistan, Azerbaycan ve Türkiye'de güvenilir tedarikçilerle çalışıyoruz.",
         directionsTitle: "Faaliyetlerimizi iki ana yönde geliştiriyoruz:",
         railTitle: "Tanker vagonlarla demiryolu petrol ürünleri sevkiyatları",
         seaTitle: "Tanker partileriyle deniz yolu petrol ürünleri sevkiyatları",
@@ -554,4 +554,5 @@ function downloadBuyerDocument() {
     let pdfFile = currentLanguage === "en" ? "proposal_klient_en.pdf" : "proposal_klient.pdf";
     window.open("/" + pdfFile, "_blank");
 }
+
 
