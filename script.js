@@ -528,10 +528,11 @@ document.addEventListener("DOMContentLoaded", function() {
     // Первоначальная загрузка цен
     fetchCommodityPrices();
     
-    // Обновление каждые 30 секунд
+    // Обновление каждые 5 минут
     // Примечание: Частота обновления зависит от ограничений API
-    setInterval(fetchCommodityPrices, 30000);
+    setInterval(fetchCommodityPrices, 300000);
 });
+
 
 // ===========================
 // SEARCH FUNCTIONALITY (OPTIONAL)
@@ -569,4 +570,5 @@ function downloadBuyerDocument() {
 
     window.open("/" + pdfFile, "_blank");
 }
+
 
