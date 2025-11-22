@@ -534,7 +534,7 @@ async function fetchCommodityPrices() {
 document.addEventListener("DOMContentLoaded", function () {
     switchLanguage(currentLanguage);
     fetchCommodityPrices();
-    setInterval(fetchCommodityPrices, 300000);
+    setInterval(fetchCommodityPrices, 600000);
 });
 
 // ===========================
@@ -554,5 +554,6 @@ function downloadBuyerDocument() {
     let pdfFile = currentLanguage === "en" ? "proposal_klient_en.pdf" : "proposal_klient.pdf";
     window.open("/" + pdfFile, "_blank");
 }
+
 
 
