@@ -37,7 +37,6 @@ function scrollToSection(sectionId) {
 // ===========================
 // LANGUAGE SWITCHER (DATA)
 // ===========================
-// ВАЖНО: Объект translations должен быть объявлен ДО функций, которые его используют!
 
 const translations = {
     ru: {
@@ -385,7 +384,6 @@ const translations = {
 function getInitialLanguage() {
     const savedLang = localStorage.getItem('language');
     const browserLang = navigator.language.substring(0, 2);
-    // Теперь translations уже определен, ошибок не будет
     if (savedLang && translations[savedLang]) return savedLang;
     if (translations[browserLang]) return browserLang;
     return 'ru';
@@ -410,12 +408,12 @@ function switchLanguage(lang) {
     document.documentElement.lang = lang;
 }
 
-// Инициализация языка (должна быть после объявления функций и объекта translations)
+// Инициализация языка
 let currentLanguage = getInitialLanguage();
 
 
 // ===========================
-// REAL-TIME COMMODITY PRICES API
+// REAL-TIME COMMODITY PRICES API (OPTIMIZED)
 // ===========================
 
 const OIL_API_KEY = "4665f3284a6247ad4cadef870e4bcbe07ab4eee8fb5c27861a4a2f457e7ee269";
@@ -429,6 +427,50 @@ async function fetchCommodityPrices() {
 
     if (!oilPriceElement) return;
 
+    // --- SMART CACHING LOGIC ---
+    // Устанавливаем кэш на 15 минут (900000 мс)
+    const CACHE_DURATION = 900000; 
+    const lastFetchTime = parseInt(localStorage.getItem("oilFetchTime") || "0");
+    const now = Date.now();
+
+    // Если прошло меньше 15 минут с последнего запроса
+    if (now - lastFetchTime < CACHE_DURATION) {
+        console.log("Using cached price to save API limit.");
+        
+        // Восстанавливаем цену
+        const cachedPrice = localStorage.getItem("lastOilPrice");
+        if (cachedPrice) {
+            oilPriceElement.textContent = `$${parseFloat(cachedPrice).toFixed(2)}`;
+            
+            // Восстанавливаем текст изменения и цвет
+            const savedChangeText = localStorage.getItem("lastOilChangeText");
+            const savedChangeClass = localStorage.getItem("lastOilChangeClass");
+            
+            oilChangeElement.classList.remove("positive", "negative");
+            if(savedChangeText) oilChangeElement.textContent = savedChangeText;
+            if(savedChangeClass) oilChangeElement.classList.add(savedChangeClass);
+            
+            // Восстанавливаем Газ/Золото из кэша (если есть), чтобы они не прыгали
+            const cachedGas = localStorage.getItem("lastGasDisplay");
+            const cachedGasClass = localStorage.getItem("lastGasClass");
+            if(cachedGas && gasChangeElement) {
+                gasChangeElement.textContent = cachedGas;
+                gasChangeElement.classList.remove("positive", "negative");
+                if(cachedGasClass) gasChangeElement.classList.add(cachedGasClass);
+            }
+            
+            const cachedGold = localStorage.getItem("lastGoldDisplay");
+            const cachedGoldClass = localStorage.getItem("lastGoldClass");
+            if(cachedGold && goldChangeElement) {
+                goldChangeElement.textContent = cachedGold;
+                goldChangeElement.classList.remove("positive", "negative");
+                if(cachedGoldClass) goldChangeElement.classList.add(cachedGoldClass);
+            }
+        }
+        return; // Выходим из функции, НЕ делая запрос
+    }
+    // ---------------------------
+
     try {
         const response = await fetch(OIL_API_URL, {
             headers: {
@@ -440,11 +482,8 @@ async function fetchCommodityPrices() {
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
         const jsonResponse = await response.json();
-        
-        // ИСПРАВЛЕНИЕ: Получаем цену из data.data.price
         const rawPrice = jsonResponse?.data?.price;
 
-        // Проверка на то, что цена действительно пришла
         if (typeof rawPrice === 'undefined' || rawPrice === null) {
             throw new Error("Price data missing in API response");
         }
@@ -458,24 +497,33 @@ async function fetchCommodityPrices() {
         const lastPrice = parseFloat(localStorage.getItem("lastOilPrice")) || newOilPrice;
         const change = newOilPrice - lastPrice;
 
+        // UI: Цена нефти
         oilPriceElement.textContent = `$${newOilPrice.toFixed(2)}`;
 
+        // UI: Изменение нефти
         oilChangeElement.classList.remove("positive", "negative");
         const changeText = Math.abs(change).toFixed(2);
+        let oilChangeStr = "0.00";
+        let oilChangeClass = "";
 
         if (change > 0.01) {
+            oilChangeClass = "positive";
             oilChangeElement.classList.add("positive");
-            oilChangeElement.textContent = `+${changeText} ↑`;
+            oilChangeStr = `+${changeText} ↑`;
         } else if (change < -0.01) {
+            oilChangeClass = "negative";
             oilChangeElement.classList.add("negative");
-            oilChangeElement.textContent = `-${changeText} ↓`;
-        } else {
-            oilChangeElement.textContent = "0.00";
+            oilChangeStr = `-${changeText} ↓`;
         }
+        oilChangeElement.textContent = oilChangeStr;
 
+        // Сохраняем данные нефти и ВРЕМЯ ЗАПРОСА
+        localStorage.setItem("oilFetchTime", now.toString()); // <-- Важно для таймера
         localStorage.setItem("lastOilPrice", newOilPrice.toFixed(4));
+        localStorage.setItem("lastOilChangeText", oilChangeStr);
+        localStorage.setItem("lastOilChangeClass", oilChangeClass);
 
-        // Имитация данных для газа и золота
+        // --- Имитация данных для газа и золота (обновляем только при запросе нефти) ---
         const lastGasPrice = parseFloat(localStorage.getItem("lastGasPrice")) || 2.85;
         const lastGoldPrice = parseFloat(localStorage.getItem("lastGoldPrice")) || 2045.30;
 
@@ -488,38 +536,56 @@ async function fetchCommodityPrices() {
         newGasPrice = Math.max(2.5, Math.min(3.5, newGasPrice));
         newGoldPrice = Math.max(2000, Math.min(2100, newGoldPrice));
 
+        // UI: Газ
         gasChangeElement.classList.remove("positive", "negative");
+        let gasStr = "";
+        let gasClass = "";
         if (gasChange > 0.01) {
+            gasClass = "positive";
             gasChangeElement.classList.add("positive");
-            gasChangeElement.textContent = `+${gasChange.toFixed(3)} ↑`;
+            gasStr = `+${gasChange.toFixed(3)} ↑`;
         } else if (gasChange < -0.01) {
+            gasClass = "negative";
             gasChangeElement.classList.add("negative");
-            gasChangeElement.textContent = `${gasChange.toFixed(3)} ↓`;
+            gasStr = `${gasChange.toFixed(3)} ↓`;
         } else {
-            gasChangeElement.textContent = `${gasChange.toFixed(3)}`;
+            gasStr = `${gasChange.toFixed(3)}`;
         }
+        gasChangeElement.textContent = gasStr;
 
+        // UI: Золото
         goldChangeElement.classList.remove("positive", "negative");
+        let goldStr = "";
+        let goldClass = "";
         if (goldChange > 1) {
+            goldClass = "positive";
             goldChangeElement.classList.add("positive");
-            goldChangeElement.textContent = `+${goldChange.toFixed(2)} ↑`;
+            goldStr = `+${goldChange.toFixed(2)} ↑`;
         } else if (goldChange < -1) {
+            goldClass = "negative";
             goldChangeElement.classList.add("negative");
-            goldChangeElement.textContent = `${goldChange.toFixed(2)} ↓`;
+            goldStr = `${goldChange.toFixed(2)} ↓`;
         } else {
-            goldChangeElement.textContent = `${goldChange.toFixed(2)}`;
+            goldStr = `${goldChange.toFixed(2)}`;
         }
+        goldChangeElement.textContent = goldStr;
 
+        // Сохраняем имитированные данные
         localStorage.setItem("lastGasPrice", newGasPrice.toFixed(4));
         localStorage.setItem("lastGoldPrice", newGoldPrice.toFixed(4));
+        // Сохраняем визуальное состояние для кэша
+        localStorage.setItem("lastGasDisplay", gasStr);
+        localStorage.setItem("lastGasClass", gasClass);
+        localStorage.setItem("lastGoldDisplay", goldStr);
+        localStorage.setItem("lastGoldClass", goldClass);
 
     } catch (error) {
         console.error("Error fetching commodity prices:", error);
-        // При ошибке показываем кэш или N/A
+        // При ошибке показываем кэш
         const cachedPrice = localStorage.getItem("lastOilPrice");
         if (cachedPrice && !isNaN(parseFloat(cachedPrice))) {
              oilPriceElement.textContent = `$${parseFloat(cachedPrice).toFixed(2)}`;
-             oilChangeElement.textContent = "...";
+             // Можно восстановить старый текст изменения, если нужно
         } else {
              oilPriceElement.textContent = `API Error`;
              oilChangeElement.textContent = "N/A";
@@ -533,8 +599,9 @@ async function fetchCommodityPrices() {
 
 document.addEventListener("DOMContentLoaded", function () {
     switchLanguage(currentLanguage);
-    fetchCommodityPrices();
-    setInterval(fetchCommodityPrices, 30000);
+    fetchCommodityPrices(); // Проверка кэша происходит внутри функции
+    // Запускаем интервал 15 минут (900000 мс)
+    setInterval(fetchCommodityPrices, 900000);
 });
 
 // ===========================
@@ -554,7 +621,3 @@ function downloadBuyerDocument() {
     let pdfFile = currentLanguage === "en" ? "proposal_klient_en.pdf" : "proposal_klient.pdf";
     window.open("/" + pdfFile, "_blank");
 }
-
-
-
-
