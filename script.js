@@ -429,17 +429,6 @@ async function fetchCommodityPrices() {
 
     if (!oilPriceElement) return;
 
-    const MIN_INTERVAL_MS = 600000; // 10 минут
-    const lastFetchTime = parseInt(localStorage.getItem("lastFetchTime") || "0");
-    const now = Date.now();
-
-    if (now - lastFetchTime < MIN_INTERVAL_MS) {
-        console.log(\`[API] Пропуск запроса. Последний запрос был \${Math.floor((now - lastFetchTime) / 60000)} минут назад. Следующий через \${Math.ceil((MIN_INTERVAL_MS - (now - lastFetchTime)) / 60000)} минут.\`);
-        return;
-    }
-
-    console.log(\`[API] Выполнение запроса цен: \${new Date().toLocaleTimeString()}\`);
-
     try {
         const response = await fetch(OIL_API_URL, {
             headers: {
@@ -485,7 +474,6 @@ async function fetchCommodityPrices() {
         }
 
         localStorage.setItem("lastOilPrice", newOilPrice.toFixed(4));
-        localStorage.setItem("lastFetchTime", now.toString()); // Записываем время успешного запроса
 
         // Имитация данных для газа и золота
         const lastGasPrice = parseFloat(localStorage.getItem("lastGasPrice")) || 2.85;
@@ -546,10 +534,7 @@ async function fetchCommodityPrices() {
 document.addEventListener("DOMContentLoaded", function () {
     switchLanguage(currentLanguage);
     fetchCommodityPrices();
-    // Используем более короткий интервал для setInterval (например, 1 минута),
-    // но фактическая частота запросов контролируется логикой в fetchCommodityPrices (10 минут).
-    // Это помогает "разбудить" скрипт, когда вкладка становится активной.
-    setInterval(fetchCommodityPrices, 60000); // Интервал 1 минута (60000 мс)
+    setInterval(fetchCommodityPrices, 30000);
 });
 
 // ===========================
